@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+iframe,
+video,
+audio {
+  max-width: 100%;
+  border: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background-color: $white;
+  color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+button {
+  margin: 0; /* 2 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  padding: 0;
+  overflow: visible;
+  font: inherit;
+  line-height: normal;
+  color: inherit;
+  cursor: pointer;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  background: none;
+  border: 0;
+
+  &:focus {
+    outline: none;
+  }
+}

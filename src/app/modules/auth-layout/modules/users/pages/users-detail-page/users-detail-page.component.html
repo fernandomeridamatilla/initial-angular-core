@@ -1,0 +1,9 @@
+<h3>User detail page</h3>
+
+<button (click)="onNavigateToList()" type="submit" class="btn btn-primary ms-2">
+  Volver al listado
+</button>
+
+<pre [style.height]="'100%'" [style.overflow]="'scroll'">
+  {{ user | json }}
+</pre>

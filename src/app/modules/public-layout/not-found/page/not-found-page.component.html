@@ -1,0 +1,14 @@
+<div id="notfound-wrapper">
+  <div class="notfound animate__animated animate__fadeIn">
+    <div class="notfound-404">
+      <h1>{{ 'publicLayout.notFound.404' | translate }}</h1>
+    </div>
+    <h2>{{ 'publicLayout.notFound.notFoundPage' | translate }}</h2>
+    <p>
+      {{ 'publicLayout.notFound.message' | translate }}
+    </p>
+    <button class="btn btn-link" [routerLink]="['/']">
+      {{ 'publicLayout.notFound.goToInit' | translate }}
+    </button>
+  </div>
+</div>

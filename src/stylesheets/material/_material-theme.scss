@@ -1,0 +1,32 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+@include mat.strong-focus-indicators(
+  (
+    border-style: dotted,
+    border-width: 4px,
+    border-radius: 2px
+  )
+);
+
+$my-typography: mat.define-typography-config(
+  $font-family: inherit
+);
+
+$my-primary: mat.define-palette(mat.$grey-palette, 900);
+$my-accent: mat.define-palette(mat.$grey-palette, 600);
+$my-warn: mat.define-palette(mat.$red-palette, 300);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn
+    )
+  )
+);
+
+@include mat.core-theme($my-theme);
+@include mat.core($my-typography);
+@include mat.all-component-themes($my-theme);
