@@ -7,7 +7,7 @@
   de posts y el detalle de un post.
   Las apis para post son: https://jsonplaceholder.typicode.com/posts y https://jsonplaceholder.typicode.com/posts/1
 
-### Pasos a seguir:
+### Pasos a seguir
 
 - Crear carpeta post que cuelgue de src/app/modules/auth-layout/modules
 - Crear carpetas pages, services que cuelguen de src/app/modules/auth-layout/modules/posts
@@ -22,7 +22,7 @@ Creación de nuevos componentes de usuarios para visualizar los datos del listad
 de un usuario con la librería bootstrap. Es obligatorio usar INPUT/OUTPUT para comunicar los componentes
 con la página que use los componentes.
 
-### Pasos a seguir:
+### Pasos a seguir
 
 - Crear las carpetas users-table y users-detail desde src/app/modules/auth-layout/modules/users/components
 - En este caso me apoyaría del comando ng generate component 'path/nombre-del-componente' para que sea mas sencillo
