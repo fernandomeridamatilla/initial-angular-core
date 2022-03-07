@@ -11,4 +11,8 @@ export class HomePageComponent {
   onNavigateToUsers(): void {
     this.router.navigate(['/users']);
   }
+
+  onNavigateToPosts(): void {
+    this.router.navigate(['/posts']);
+  }
 }
