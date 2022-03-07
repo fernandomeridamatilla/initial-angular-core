@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -20,8 +22,8 @@ export class UsersListPageComponent implements OnInit {
     this.getUsersList();
   }
 
-  onNavigateToDetail(): void {
-    this.router.navigate(['/users', 1], {
+  onClickUser(user: any): void {
+    this.router.navigate(['/users', user.id], {
       relativeTo: this.route
     });
   }

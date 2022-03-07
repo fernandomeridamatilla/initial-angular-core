@@ -1,0 +1,16 @@
+<ul *ngIf="!!user" class="list-group list-group-flush">
+  <li class="list-group-item">Name: {{ user.name | notInformed }}</li>
+  <li class="list-group-item">Username: {{ user.username | notInformed }}</li>
+  <li class="list-group-item">Email: {{ user.email | notInformed }}</li>
+  <li class="list-group-item">Phone: {{ user.phone | notInformed }}</li>
+  <li class="list-group-item">Website: {{ user.website | notInformed }}</li>
+  <li class="list-group-item">
+    Company name: {{ user.company.name | notInformed }}
+  </li>
+  <li class="list-group-item">
+    Company catch phrase: {{ user.company.catchPhrase | notInformed }}
+  </li>
+  <li class="list-group-item">
+    Company bs: {{ user.company.bs | notInformed }}
+  </li>
+</ul>

@@ -1,13 +1,4 @@
 <h3>User List page</h3>
 
-<button
-  (click)="onNavigateToDetail()"
-  type="submit"
-  class="btn btn-primary ms-2"
->
-  Detalle de un usuario
-</button>
-
-<pre [style.height]="'100%'" [style.overflow]="'scroll'">
-  {{ users | json }}
-</pre>
+<ngx-users-table [users]="users" (clickUser)="onClickUser($event)">
+</ngx-users-table>
