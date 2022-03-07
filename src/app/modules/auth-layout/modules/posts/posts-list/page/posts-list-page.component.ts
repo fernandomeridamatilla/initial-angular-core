@@ -3,7 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { PostsService } from '../../services/posts-service/posts.service';
+import { PostsListService } from '../services/posts-list-service/posts-list.service';
 
 @Component({
   selector: 'ngx-posts-list-page',
@@ -15,7 +15,7 @@ export class PostsListPageComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private postsService: PostsService
+    private postsListService: PostsListService
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class PostsListPageComponent implements OnInit {
   }
 
   private getPostsList(): void {
-    this.postsService
+    this.postsListService
       .getAll()
       .subscribe((posts: unknown) => (this.posts = posts));
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { PostsService } from '../../services/posts-service/posts.service';
+import { PostsDetailService } from '../services/posts-detail-service/posts-detail.service';
 
 @Component({
   selector: 'ngx-posts-detail-page',
@@ -11,7 +11,7 @@ export class PostsDetailPageComponent implements OnInit {
   post: unknown;
 
   constructor(
-    private postsService: PostsService,
+    private postsDetailService: PostsDetailService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -27,7 +27,7 @@ export class PostsDetailPageComponent implements OnInit {
   private getDetail(): void {
     const { id } = this.route?.snapshot?.params;
 
-    this.postsService
+    this.postsDetailService
       .getDetail(String(id))
       .subscribe((post: unknown) => (this.post = post));
   }
