@@ -1,0 +1,35 @@
+<table mat-table [dataSource]="posts" class="mat-elevation-z8 w-100">
+  <ng-container matColumnDef="userId">
+    <th mat-header-cell *matHeaderCellDef>User id</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.userId | notInformed }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id | notInformed }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.title | notInformed }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="body">
+    <th mat-header-cell *matHeaderCellDef>Body</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.body | truncateString: 10 | notInformed }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    (click)="onClickPost(post)"
+    class="link"
+    *matRowDef="let post; columns: displayedColumns"
+  ></tr>
+</table>

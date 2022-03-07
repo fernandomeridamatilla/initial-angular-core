@@ -1,13 +1,8 @@
 <h3>Posts List page</h3>
 
-<button
-  (click)="onNavigateToDetail()"
-  type="submit"
-  class="btn btn-primary ms-2"
->
-  Detalle de un post
-</button>
-
-<pre [style.height]="'100%'" [style.overflow]="'scroll'">
-  {{ posts | json }}
-</pre>
+<div [style.overflow]="'scroll'" [style.height]="'100%'">
+  <ngx-posts-table
+    [posts]="posts"
+    (clickPost)="onClickPost($event)"
+  ></ngx-posts-table>
+</div>

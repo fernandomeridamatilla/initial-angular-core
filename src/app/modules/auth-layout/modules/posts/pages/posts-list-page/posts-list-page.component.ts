@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -20,8 +22,8 @@ export class PostsListPageComponent implements OnInit {
     this.getPostsList();
   }
 
-  onNavigateToDetail(): void {
-    this.router.navigate(['/posts', 1], {
+  onClickPost(post: any): void {
+    this.router.navigate(['/posts', post.id], {
       relativeTo: this.route
     });
   }

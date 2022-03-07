@@ -1,0 +1,6 @@
+<ul *ngIf="!!post" class="list-group list-group-flush">
+  <li class="list-group-item">User id: {{ post.userId | notInformed }}</li>
+  <li class="list-group-item">id: {{ post.id | notInformed }}</li>
+  <li class="list-group-item">title: {{ post.title | notInformed }}</li>
+  <li class="list-group-item">body: {{ post.body | notInformed }}</li>
+</ul>
