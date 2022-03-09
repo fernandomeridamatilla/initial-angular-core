@@ -1,0 +1,124 @@
+<h3>Form page</h3>
+<div class="container-fluid">
+  <h4 class="my-4">NETEX Form</h4>
+  <h5>Form valid: {{ form?.valid }}</h5>
+  <hr class="my-4" />
+
+  <div class="row">
+    <div class="col-9">
+      <form
+        [formGroup]="form"
+        class="overflow-scroll p-4"
+        [style.max-height]="'500px'"
+        [style.min-height]="'500px'"
+      >
+        <div class="row mb-3">
+          <label class="col-2 form-label">Name</label>
+          <div class="col-10">
+            <input
+              formControlName="name"
+              class="form-control"
+              type="text"
+              placeholder="Name"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-2 form-label">Surname</label>
+          <div class="col-10">
+            <input
+              formControlName="surname"
+              class="form-control"
+              type="text"
+              placeholder="Surname"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-2 form-label">Email</label>
+          <div class="col-md-10">
+            <input
+              formControlName="email"
+              type="email"
+              placeholder="Email"
+              class="form-control"
+              [class.is-invalid]="isValidEmail"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12">
+            <button (click)="onAddAddress()" class="btn btn-primary">
+              add Adrress
+            </button>
+          </div>
+        </div>
+
+        <div formArrayName="addresses">
+          <div *ngFor="let address of addresses; let i = index">
+            <div [formGroupName]="i" class="row mb-3">
+              <label class="col-2 form-label">Address {{ i + 1 }}</label>
+              <div class="col-5">
+                <input
+                  formControlName="street"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+              <div class="col-4">
+                <input
+                  formControlName="number"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+              <div class="col-1">
+                <button
+                  (click)="onRemoveAddress(i)"
+                  class="btn btn-outline-danger"
+                >
+                  X
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-5">
+          <hr class="my-4" />
+          <div class="input-group col-12">
+            <button (click)="onShowState()" class="btn btn-secondary mb-2">
+              Estado del formulario
+            </button>
+          </div>
+          <div class="input-group col-12">
+            <button
+              class="btn btn-outline-primary"
+              [class.disabled]="isInvalidForm"
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-3">
+      <div
+        class="overflow-scroll"
+        [style.min-height]="'500px'"
+        [style.max-height]="'500px'"
+        *ngIf="form"
+      >
+        <h4 class="mb-3">form value:</h4>
+        <pre>
+            {{ form.value | json }}
+          </pre
+        >
+      </div>
+    </div>
+  </div>
+</div>

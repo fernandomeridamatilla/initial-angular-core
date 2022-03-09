@@ -15,4 +15,8 @@ export class HomePageComponent {
   onNavigateToPosts(): void {
     this.router.navigate(['/posts']);
   }
+
+  onNavigateToForm(): void {
+    this.router.navigate(['/form']);
+  }
 }

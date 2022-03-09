@@ -1,6 +1,7 @@
 <h3>Home page</h3>
 
 <span> {{ '' | notInformed }} </span>
+<br />
 
 <button
   (click)="onNavigateToUsers()"
@@ -16,4 +17,8 @@
   class="btn btn-primary ms-2"
 >
   Listado de posts
+</button>
+
+<button (click)="onNavigateToForm()" type="submit" class="btn btn-primary ms-2">
+  Formulario
 </button>
