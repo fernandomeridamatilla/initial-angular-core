@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -7,13 +7,16 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'ngx-form-page',
   templateUrl: './form-page.component.html'
 })
-export class FormPageComponent implements OnInit {
+export class FormPageComponent implements OnInit, OnDestroy {
   form: FormGroup;
+
+  private unsubscribe = new Subject<void>();
 
   get isValidEmail(): boolean {
     return (
@@ -34,6 +37,11 @@ export class FormPageComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.onSubscribeName();
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
   onShowState(): void {
@@ -62,11 +70,11 @@ export class FormPageComponent implements OnInit {
   }
 
   private onSubscribeName(): void {
-    this.form
-      ?.get('name')
-      ?.valueChanges.subscribe((data: string) =>
-        console.log('Name changed: ', data)
-      );
+    const control = this.form?.get('name');
+
+    control?.valueChanges
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe((data: string) => console.log('Name changed: ', data));
   }
   private createAddressGroup(): FormGroup {
     return this.fb.group({
