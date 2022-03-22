@@ -1,1 +1,7 @@
 @import 'material-theme';
+
+.mat-table {
+  .mat-row.on-mouse-enter {
+    background-color: #b5b5b5;
+  }
+}

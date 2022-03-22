@@ -18,15 +18,18 @@ export class MouseEnterRowDirective {
 
   @HostListener('mouseenter')
   mouseenter(): void {
-    const postId = (this.elRef.nativeElement as HTMLElement).getAttribute(
-      'data-post-id'
-    );
+    const el = this.elRef.nativeElement as HTMLElement;
+    const postId = el.getAttribute('data-post-id');
 
+    el.classList.add('on-mouse-enter');
     this.mouseEnter.emit(Number(postId));
   }
 
   @HostListener('mouseleave')
   mouseleave(): void {
+    const el = this.elRef.nativeElement as HTMLElement;
+
+    el.classList.remove('on-mouse-enter');
     this.mouseLeave.emit();
   }
 }
